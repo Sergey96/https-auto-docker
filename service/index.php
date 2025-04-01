@@ -21,7 +21,7 @@ $domains = $_POST['domains'];
 
 foreach ($domains as $domain) {
     $data = getTemplate($domain);
-    $path = "/var/docker-data/nginx-conf.d/$domain.conf";
+    $path = "/var/sites-data/nginx-conf.d/$domain.conf";
     file_put_contents($path, $data);
 }
 
@@ -37,22 +37,22 @@ echo '</pre>';
 //
 //
 //    $data = getHttpsTemplate($domain);
-//    $path = "/var/docker-data/nginx-conf.d/$domain.conf";
+//    $path = "/var/sites-data/nginx-conf.d/$domain.conf";
 //    file_put_contents($path, $data);
 //
 //
-//    $command = "certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/docker-data/letsencrypt/config  --work-dir=/var/docker-data/letsencrypt/work --logs-dir=/var/docker-data/letsencrypt/logs";
+//    $command = "certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/sites-data/letsencrypt/config  --work-dir=/var/sites-data/letsencrypt/work --logs-dir=/var/sites-data/letsencrypt/logs";
 //    $command = "echo \$PATH";
-//    $command = "sudo PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"  certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/docker-data/letsencrypt/config  --work-dir=/var/docker-data/letsencrypt/work --logs-dir=/var/docker-data/letsencrypt/logs";
-//    $command = "sudo PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"  certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/docker-data/letsencrypt/config  --work-dir=/var/docker-data/letsencrypt/work --logs-dir=/var/docker-data/letsencrypt/logs";
-//    $command = "bash /var/docker-data/service/certbot.sh";
+//    $command = "sudo PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"  certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/sites-data/letsencrypt/config  --work-dir=/var/sites-data/letsencrypt/work --logs-dir=/var/sites-data/letsencrypt/logs";
+//    $command = "sudo PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"  certbot certonly --nginx --non-interactive --agree-tos --no-eff-email --email=$domain@gmail.com -d $domain -d www.$domain --rsa-key-size 4096 --config-dir=/var/sites-data/letsencrypt/config  --work-dir=/var/sites-data/letsencrypt/work --logs-dir=/var/sites-data/letsencrypt/logs";
+//    $command = "bash /var/sites-data/service/certbot.sh";
 //    exec($command.' 2>&1',$content,$ret);
 //    print_r($command);
 //    print_r($content);
 //    print_r($ret);
 //
 //    $data = getHttpsFullTemplate($domain);
-//    $path = "/var/docker-data/nginx-conf.d/$domain.conf";
+//    $path = "/var/sites-data/nginx-conf.d/$domain.conf";
 //    file_put_contents($path, $data);
 //    die();
 //}

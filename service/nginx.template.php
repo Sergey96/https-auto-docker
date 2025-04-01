@@ -121,8 +121,8 @@ server {
 
         server_tokens off;
 
-        ssl_certificate /var/docker-data/letsencrypt/config/live/$host_name/fullchain.pem;
-        ssl_certificate_key /var/docker-data/letsencrypt/config/live/$host_name/privkey.pem;
+        ssl_certificate /var/sites-data/letsencrypt/config/live/$host_name/fullchain.pem;
+        ssl_certificate_key /var/sites-data/letsencrypt/config/live/$host_name/privkey.pem;
 
         add_header X-Frame-Options \"SAMEORIGIN\" always;
         add_header X-XSS-Protection \"1; mode=block\" always;

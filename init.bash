@@ -30,8 +30,6 @@ else
     sudo  bash -c 'echo "include /var/sites-data/nginx-conf.d/*.conf;" >> /etc/nginx/conf.d/hostinger.conf'
   fi
 
-  nginx -t && systemctl reload nginx
-
   sudo apt-get install python3-certbot-nginx
 
   part1=`cat /var/sites-data/service/server.conf.part1`
@@ -39,6 +37,7 @@ else
   serverIp=` hostname -I | grep -Eo '^[0-9.]+'`
   echo "${part1}${serverIp}${part2}" > '/var/sites-data/nginx-conf.d/_server.com.conf'
 
+  nginx -t && systemctl reload nginx
   echo 1 > /var/sites-data/service/isinit
   echo "System success initialized"
 fi
