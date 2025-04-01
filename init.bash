@@ -37,7 +37,7 @@ else
   part1=`cat /var/sites-data/service/server.conf.part1`
   part2=`cat /var/sites-data/service/server.conf.part2`
   serverIp=` hostname -I | grep -Eo '^[0-9.]+'`
-  echo "${part1}${serverIp}${part2}" > '/var/ sites-data/nginx-conf.d/_server.com.conf'
+  echo "${part1}${serverIp}${part2}" > '/var/sites-data/nginx-conf.d/_server.com.conf'
 
   echo 1 > /var/sites-data/service/isinit
   echo "System success initialized"
