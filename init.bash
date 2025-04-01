@@ -7,20 +7,16 @@ FILE="${BASE_DIR}/service/isinit"
 if [ -f $FILE ]; then
    echo "System already initialized"
 else
-  chmod 777 $BASE_DIR
+  chmod -R 777 $BASE_DIR
   apt install nginx -y
   systemctl enable nginx
   apt install openssl php-bcmath php-curl php-json php-mbstring php-mysql php-tokenizer php-xml php-zip php-fpm -y
   service php8.3-fpm start
   apt install php-cli unzip -y
 
-  FILE_SUDOERS="/etc/sudoers.d/nginx.reload"
 
-  if [ -f $FILE_SUDOERS ]; then
-     echo "sudoers.d already added"
-  else
-    sudo bash -c 'echo "www-data ALL=(ALL) NOPASSWD: /usr/sbin/service nginx reload" >> /etc/sudoers.d/nginx.reload'
-  fi
+  sudoersFile=$(ls -t /etc/sudoers.d | head -1)
+  echo "www-data ALL=(ALL) NOPASSWD: /usr/sbin/service nginx reload" >> "/etc/sudoers.d/${sudoersFile}"
 
   FILE_HOSTINGER="/etc/nginx/conf.d/hostinger.conf"
 
