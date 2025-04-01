@@ -26,7 +26,7 @@ else
     sudo  bash -c 'echo "include /var/sites-data/nginx-conf.d/*.conf;" >> /etc/nginx/conf.d/hostinger.conf'
   fi
 
-  sudo apt-get install python3-certbot-nginx
+  #sudo apt-get install python3-certbot-nginx -y
 
   part1=`cat /var/sites-data/service/server.conf.part1`
   part2=`cat /var/sites-data/service/server.conf.part2`
