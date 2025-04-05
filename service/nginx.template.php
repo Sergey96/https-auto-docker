@@ -87,10 +87,6 @@ server {
         location = /robots.txt {
                 log_not_found off;
         }
-        location ~* \.(css|gif|ico|jpeg|jpg|js|png)$ {
-                expires max;
-                log_not_found off;
-        }
 }
 ";
 }
