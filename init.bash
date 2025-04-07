@@ -9,7 +9,6 @@ if [ -f $FILE ]; then
    echo "System already initialized"
 else
   chmod -R 777 $BASE_DIR
-  chmod -R 777 $SITES_DIR
 
   # Установка php, nginx и модулей
   apt install nginx -y
@@ -37,6 +36,7 @@ else
   serverIp=` hostname -I | grep -Eo '^[0-9.]+'`
   echo "${part1}${serverIp}${part2}" > '/var/sites-data/nginx-conf.d/_server.com.conf'
 
+  chmod -R 777 $SITES_DIR
   # Применение новой конфигурации
   nginx -t && systemctl reload nginx
 
