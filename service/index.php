@@ -55,6 +55,10 @@ function getCertificate($domain)
 
         $certificate = $client->getCertificate($order);
 
+        if (!is_dir('/var/sites-data/cert/')) {
+            mkdir('/var/sites-data/cert/');
+        }
+
         if (!is_dir('/var/sites-data/cert/' . $domain)) {
             mkdir('/var/sites-data/cert/' . $domain);
         }
