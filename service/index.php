@@ -93,8 +93,11 @@ try {
         $path = "/var/sites-data/nginx-conf.d/$domain.conf";
         file_put_contents($path, $data);
 
-        reloadNginx();
+    }
 
+    reloadNginx();
+
+    foreach ($domains as $domain) {
         getCertificate($domain);
         $data = getHttpsFullTemplate($domain);
         $path = "/var/sites-data/nginx-conf.d/$domain.conf";
